@@ -1,14 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
+import getGifs from "./services/getGifs";
 
 export function App() {
-  const gifs = [
-    "https://media4.giphy.com/media/EPcvhM28ER9XW/200w.webp?cid=ecf05e47mjh2usjikdlr4m5ko2hfogdghunzqvw5kg5dkh7h&ep=v1_gifs_search&rid=200w.webp&ct=g",
-    "https://media0.giphy.com/media/xNuoUMEJCdVKVm7r2x/200w.webp?cid=ecf05e47mjh2usjikdlr4m5ko2hfogdghunzqvw5kg5dkh7h&ep=v1_gifs_search&rid=200w.webp&ct=g",
-    "https://media3.giphy.com/media/ewzF6uunnPn6L5amuW/200w.webp?cid=ecf05e47mjh2usjikdlr4m5ko2hfogdghunzqvw5kg5dkh7h&ep=v1_gifs_search&rid=200w.webp&ct=g",
-  ];
-
-  const [value, setValue] = useState(gifs);
+  const [gifs, setGifs] = useState([]);
+  useEffect(function () {
+    getGifs().then((gifs) => setGifs(gifs));
+  });
 
   return (
     <div>
@@ -19,16 +17,27 @@ export function App() {
             alt="logo"
             className="logo"
           />
+          <h1 className="nbtrg">Better Gifs</h1>
         </a>
         <form action="" className="buscador">
           <input type="text" />
-          <button>buscar</button>
+          <button className="btnbus">buscar</button>
         </form>
       </header>
-      <section>
-        {value.map((unGif, index) => (
-          <img key={index} src={unGif} alt={`gif-${index}`} />
-        ))}
+      <section className="gifs-section">
+        {gifs.map((unGif) => {
+          return (
+            // eslint-disable-next-line react/jsx-key
+            <div className="gif-div">
+              <img
+                className="gif-img"
+                key={unGif.id}
+                src={unGif.url}
+                alt={unGif.title}
+              />
+            </div>
+          );
+        })}
       </section>
       <footer></footer>
     </div>
