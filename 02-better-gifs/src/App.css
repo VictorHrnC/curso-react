@@ -7,11 +7,20 @@
     display: flex;
   }
   
-  
+  .nbtrg{
+    font-size: 2rem;
+    background-image: linear-gradient(45deg, #ff0000, #ff7700, #ffcc00, #aaff00, #00ff77, #0077ff, #aa00ff, #ff00aa);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    padding-left: 10px;
+  }
+
   .img-logo {
     text-decoration: none; 
     flex: 1;
-  
+    display: flex;
+    align-items: center;
   }
   .logo{
     margin-left: 50px;
@@ -22,12 +31,46 @@
   .buscador {
       width: auto;
       border-radius: 5px;
-      padding: 10px;
+      padding-right: auto;
       display: flex;
       align-items: center;
   }
 
+  .btnbus {
+    padding-left: 10px;
+    align-items: center;
+    margin: 30px;
+  }
+  .gifs-section{
+    background-color: #5d5d5d;
+    padding-left: 30px;
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .gif-div {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px; 
+    display: flex;
+
+  }
   
+ 
+  .small {
+    font-size: 14px;
+    font-weight: bold; 
+    margin-bottom: 5px; 
+  }
+  
+
+  .gif-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-top: 5px; 
+  }
+ 
   form {
     display: flex;
     align-items: center;
@@ -44,6 +87,8 @@
     color: #fff;
     border: none;
     border-radius: 5px;
-    padding: 5px 10px;
+    padding: 5px 30px;
     cursor: pointer;
+    text-align: justify;
+    
   }
