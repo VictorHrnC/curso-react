@@ -4,12 +4,15 @@ import getGifs from "./services/getGifs";
 
 export function App() {
   const [gifs, setGifs] = useState([]);
+  const [busqueda, setBusqueda] = useState([]);
+  const handleInputChange = ({ target }) => {
+    setBusqueda(target.value);
+  };
   useEffect(function () {
-    getGifs().then((gifs) => setGifs(gifs));
+    getGifs({ keyWord: busqueda }).then((gifs) => setGifs(gifs));
   });
-
   return (
-    <div>
+    <div className="div-gen">
       <header className="header">
         <a className="img-logo">
           <img
@@ -19,25 +22,22 @@ export function App() {
           />
           <h1 className="nbtrg">Better Gifs</h1>
         </a>
-        <form action="" className="buscador">
-          <input type="text" />
-          <button className="btnbus">buscar</button>
+        <form>
+          <input
+            className="bus-inp"
+            type="text"
+            name="kword"
+            value={busqueda}
+            onChange={handleInputChange}
+          />
         </form>
       </header>
       <section className="gifs-section">
-        {gifs.map((unGif) => {
-          return (
-            // eslint-disable-next-line react/jsx-key
-            <div className="gif-div">
-              <img
-                className="gif-img"
-                key={unGif.id}
-                src={unGif.url}
-                alt={unGif.title}
-              />
-            </div>
-          );
-        })}
+        {gifs.map((unGif) => (
+          <div className="gif-div" key={unGif.id}>
+            <img className="gif-img" src={unGif.url} alt={unGif.title} />
+          </div>
+        ))}
       </section>
       <footer></footer>
     </div>

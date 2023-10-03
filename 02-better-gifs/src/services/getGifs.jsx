@@ -1,8 +1,7 @@
 const apiKey = "A1f7VGMt6nEIpuu415o3vqTwCeQ0qHqp";
-const keyword = "trending";
-const apiURL = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${keyword}&limit=50&offset=0&rating=pg&lang=en&bundle=messaging_non_clips`;
 
-export default function getGifs() {
+export default function getGifs({ keyWord = "trending" } = {}) {
+  const apiURL = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${keyWord}&limit=10&offset=0&rating=pg&lang=en&bundle=messaging_non_clips`;
   return fetch(apiURL)
     .then((res) => res.json())
     .then((response) => {

@@ -1,8 +1,9 @@
 
   .header {
     background-color: #000000; 
-     
+    justify-content: space-between;
     padding: 10px;
+    align-items: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
     display: flex;
   }
@@ -28,13 +29,6 @@
     height: 100px;
     border-radius: 50px;
   }
-  .buscador {
-      width: auto;
-      border-radius: 5px;
-      padding-right: auto;
-      display: flex;
-      align-items: center;
-  }
 
   .btnbus {
     padding-left: 10px;
@@ -49,6 +43,7 @@
     justify-content: space-between;
   }
   .gif-div {
+    background-color: #5d5d5d;
     border: 1px solid #ccc;
     padding: 10px;
     margin-bottom: 20px; 
@@ -56,7 +51,17 @@
 
   }
   
- 
+  .bus-inp {
+    width: 800px;
+    height: 30px;
+    padding: 10px;
+    margin-right: 50px;
+    font-size: 18px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: flex;
+  }
   .small {
     font-size: 14px;
     font-weight: bold; 
@@ -70,7 +75,10 @@
     display: block;
     margin-top: 5px; 
   }
- 
+ .div-gen{
+  background-color: #5d5d5d;
+ }
+
   form {
     display: flex;
     align-items: center;
@@ -91,4 +99,7 @@
     cursor: pointer;
     text-align: justify;
     
+  }
+  footer{
+    background-color: #000000; 
   }
